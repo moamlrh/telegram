@@ -1,0 +1,72 @@
+.messages {
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+.messages:hover {
+  background-color: #202b36;
+}
+.person-msg {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+.person-msg > .avatar {
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: 10px;
+  border: 1px solid rgba(131, 131, 131, 0.637);
+}
+.person-info {
+  width: 100%;
+}
+.person-info > div {
+  margin-left: 8px;
+  width: 100%;
+  display: flex;
+}
+.person-info > div > h4 {
+  flex: 1;
+}
+.person-info > div > span {
+  font-size: 14px;
+  color: gray;
+}
+.last-and-badge > p {
+  color: #3e8df5c7;
+}
+
+.last-and-badge {
+  display: flex;
+  align-items: center;
+}
+.last-and-badge > p {
+  flex: 1;
+}
+.last-and-badge > .badge {
+  background-color: #3e546a;
+  border-radius: 20px;
+  padding: 1px 5px;
+  color: rgb(255, 255, 255) !important;
+}
+
+/* ------------------------------------- */
+
+.circle-progress {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.circle-progress > * {
+  color: #3f4c5e !important;
+}
+
+@media all and (max-width: 500px) {
+  .person-msg > .avatar {
+    width: 30px !important;
+    height: 30px !important;
+    margin:0;
+    border: 1px solid rgba(131, 131, 131, 0.637);
+  }
+}

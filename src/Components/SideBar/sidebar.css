@@ -1,0 +1,124 @@
+.sidebar-app {
+  background-color: #17212b;
+  position: fixed;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  max-width: 400px;
+  height: 100%;
+  overflow-x: hidden;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: left 0.5s;
+}
+#ovellyBackground {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  background-color: rgba(0, 0, 0, 0.336);
+}
+.header-main {
+  background-color: #276899 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+.sidebar-account {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  justify-content: space-between;
+  color: white;
+  cursor: pointer;
+}
+.show-account {
+  transition: all 0.4s;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.288);
+}
+.show {
+  height: 140px;
+}
+.hide {
+  height: 0px;
+  border: 0;
+}
+.first-account {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+  width: 100%;
+}
+.first-account:hover {
+  background-color: #232e3c;
+  width: 100%;
+}
+.first-account > span {
+  margin-left: 10px;
+  color: white;
+}
+.show-account-avatar {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.sidebar-options {
+  margin-top: 10px;
+  width: 100%;
+}
+.options-sidebar {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 10px 15px;
+  color: white;
+}
+
+.options-sidebar:hover {
+  background-color: #232e3c;
+  width: 100%;
+}
+.options-sidebar > h4 {
+  margin-left: 20px;
+  font-weight: 500;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.options-sidebar > .icons {
+  color: gray;
+}
+
+@media all and (max-width: 500px) {
+  .sidebar-app{
+    min-width: 50% !important;
+  }
+  .options-sidebar{
+    width: 100%;
+  }
+  .options-sidebar > h4 {
+    font-size: 14px;
+    margin-left: 6px;
+  }
+  .first-account {
+    font-size: 13px !important;
+  }
+  .options-sidebar > .icons {
+    font-size: 15px !important;
+  }
+}

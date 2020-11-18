@@ -1,0 +1,47 @@
+.navbar-app {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #17212b;
+  z-index: 1;
+}
+.navbar-app > h3 {
+  flex: 1;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 20px;
+  font-weight: 900;
+}
+.navbar-app > .menu {
+  cursor: pointer;
+  color: rgb(136, 136, 136);
+  outline: none;
+  margin-right: 20px;
+}
+.navbar-app > .menu:hover {
+  color: white;
+}
+.navbar-app > .search-input {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(170, 170, 170);
+  background-color: #242f3d;
+  border: 0;
+  flex: 1;
+}
+
+@media all and (max-width: 500px) {
+  .navbar-app {
+    display: flex;
+    padding: 0px;
+    width: 100%;
+    justify-content: center;
+    align-items: center !important;
+  }
+  .navbar-app > .menu {
+    margin-right: 0;
+  }
+}

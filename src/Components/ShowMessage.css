@@ -1,0 +1,144 @@
+.show-message {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.sm-header {
+  z-index: 1;
+  display: flex;
+  color: gray;
+  background-color: #17212b;
+  align-items: center;
+  padding: 5px 10px;
+  position: sticky;
+  top: 0;
+}
+.body {
+  flex: 1;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  transition: all 0.5;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-color: hsla(211, 10%, 58%, 0.992) #9b9fa43f;
+}
+.sm-header > .title {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.918);
+}
+.sm-header > .title > span {
+  color: rgba(167, 162, 162, 0.856);
+}
+.sm-header > .icons > * {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 20px !important;
+}
+.sm-header > .icons > *:hover {
+  color: white;
+}
+/* ---------------------------------------- */
+.message-comp {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.me {
+  align-self: flex-end;
+  padding: 10px;
+  color: white;
+  background-color: #2b5278;
+  border-radius: 15px;
+  margin: 10px;
+}
+.you {
+  align-self: flex-start;
+  padding: 10px;
+  color: white;
+  background-color: #182533;
+  border-radius: 15px;
+  margin: 10px;
+}
+.message-comp > div > h3 {
+  font-weight: 500;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.767);
+}
+/* -------------------------------------------------- */
+.sm-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  background-color: #17212b;
+  padding: 10px 0px;
+  color: rgba(204, 204, 204, 0.658);
+}
+.sm-input > * {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.sm-input > .hover:hover {
+  color: white;
+}
+.sm-input > .add-file {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.sm-input > input {
+  flex: 1;
+  padding: 10px;
+  background-color: #17212b;
+  border: 0;
+  font-size: 13px;
+  color: white;
+  outline: none;
+}
+#btn {
+  border: 0;
+}
+/* --------------------------- */
+
+.right-side > h1 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@media all and (max-width: 500px) {
+  .right-side > h1 {
+    font-size: 17px;
+  }
+  .body {
+  }
+  .sm-header > .title {
+    font-size: 15px;
+  }
+  .sm-header > .icons > * {
+    margin-right: 5px;
+  }
+  .sm-header > .title > span {
+    font-size: 13px;
+  }
+  .message-comp > div > h3 {
+    font-size: 15px;
+  }
+  .sm-input > * {
+    font-size: 15px !important;
+  }
+  .sm-input > input {
+    font-size: 14px !important;
+    padding: 5px;
+    flex: 1;
+  }
+}
+@media all and (max-width: 350px) {
+  .sm-input > input {
+    font-size: 11px !important;
+    padding: 0px;
+    margin: 0;
+  }
+}
