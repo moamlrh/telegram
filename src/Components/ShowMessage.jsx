@@ -7,29 +7,43 @@ import {
   Search,
   Send,
 } from "@material-ui/icons";
+import { Skeleton } from "@material-ui/lab";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { auth, database } from "../firebase/config";
 import MessageComp from "./MessageComp";
-import { setLastMessage } from "./redux/actions";
 import "./ShowMessage.css";
+
+const skeletonComp = () => {
+  const arr = [];
+  for (let i = 1; i < 15; i++) {
+    arr.push(
+      <Skeleton key={i} variant="text" className={i % 2 == 0 && "skele-2"} />
+    );
+  }
+  return arr;
+};
 
 function ShowMessage({ messages, userIdClicked }) {
   const [value, setValue] = useState("");
-  const handleBtnSendClick = () => {
-    if (value) {
-      database
-        .ref(`messages/${auth.currentUser.uid + userIdClicked.uid}/`)
-        .push({
+  const handleBtnSendClick = async () => {
+    const userAuth = auth.currentUser.uid;
+    const userId = userIdClicked.uid;
+    const req = await database.ref(`messages/${userAuth + userId}/`);
+    try {
+      if (value) {
+        req.push({
           msg: value,
-          by: auth.currentUser.uid,
-          to: userIdClicked.uid,
+          by: userAuth,
+          to: userId,
           timestamp: Date.now(),
         });
-      setValue("");
+        setValue("");
+      }
+    } catch (error) {
+      alert(error.message);
     }
   };
-
   useEffect(() => {
     document.addEventListener("keypress", (e) => {
       if (e.keyCode === 13) {
@@ -43,7 +57,7 @@ function ShowMessage({ messages, userIdClicked }) {
     <div className="show-message">
       <div className="sm-header">
         <div className="title">
-          <h4>{userIdClicked.displayName}</h4>
+          <h4>{userIdClicked?.displayName}</h4>
           <span>last seen recently</span>
         </div>
         <div className="icons">
@@ -53,6 +67,9 @@ function ShowMessage({ messages, userIdClicked }) {
         </div>
       </div>
       <div className="body">
+        {messages.length === 0 && (
+          <div className="skeleton">{skeletonComp().map((comp) => comp)}</div>
+        )}
         {messages
           .sort((a, b) => a.timestamp - b.timestamp)
           .map((msg, index) => {
@@ -65,6 +82,7 @@ function ShowMessage({ messages, userIdClicked }) {
           placeholder="Write a message..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          disabled={messages.length === 0 ? true : false}
         />
         <EmojiEmotionsOutlined className="emoji hover" />
         <IconButton
@@ -79,13 +97,8 @@ function ShowMessage({ messages, userIdClicked }) {
   );
 }
 const mapState = (state) => ({
-  userIdClicked: state.userIdClicked,
-  lastMsg: state.lastMsg,
   messages: state.msgsUserClicked,
+  userIdClicked: state.userIdClicked,
 });
 
-const mapDispatch = (dispatch) => ({
-  setLastMessageInRedux: (info) => dispatch(setLastMessage(info)),
-});
-
-export default connect(mapState, mapDispatch)(ShowMessage);
+export default connect(mapState)(ShowMessage);

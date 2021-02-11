@@ -2,11 +2,9 @@ import { ACTIONS } from "./actions";
 
 const initialState = {
   isUserLogin: false,
-  user: {},
+  user: {}, 
   ClickedOnChat: false,
-  userIdClicked: {},
-  check: { by: "", to: "" },
-  lastMsg: "",
+  userClicked: {},
   msgsUserClicked: [],
 };
 
@@ -17,7 +15,7 @@ export default (state = initialState, { type, payload }) => {
     case ACTIONS.LOGOUT:
       return { ...state, user: {}, isUserLogin: false };
     case ACTIONS.OPENCHATONCLICK:
-      return { ...state, userIdClicked: payload, ClickedOnChat: true };
+      return { ...state, userClicked: payload};
     case ACTIONS.LASTMESSAGE:
       return { ...state, lastMsg: payload };
     case ACTIONS.MESSAGEDUSERCLICKED:

@@ -29,6 +29,7 @@ function Login({ user, setUserLoginInRedux }) {
           uid: user.uid,
           phoneNumber: user.phoneNumber,
           timestamp: new Date(),
+          lastSignInTime: user.metadata.lastSignInTime
         }).catch(err => alert(err.message))
       }
     });

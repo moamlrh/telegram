@@ -70,3 +70,10 @@
     border: 1px solid rgba(131, 131, 131, 0.637);
   }
 }
+
+/* --------------------------------------------- */
+
+.active{
+  background-color: rgb(196, 29, 29) !important;
+  color: green !important;
+}

@@ -2,6 +2,12 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  transition: all 0.5;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-color: hsla(211, 10%, 58%, 0.992) #9b9fa43f;
 }
 .sm-header {
   z-index: 1;
@@ -15,12 +21,7 @@
 }
 .body {
   flex: 1;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  transition: all 0.5;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-color: hsla(211, 10%, 58%, 0.992) #9b9fa43f;
+  padding-bottom: 70px;
 }
 .sm-header > .title {
   flex: 1;
@@ -141,4 +142,24 @@
     padding: 0px;
     margin: 0;
   }
+}
+
+
+/* -------------------------------------- */
+
+.skeleton{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton> * {
+  background-color: rgba(61, 61, 61, 0.479) !important;
+  padding: 20px;
+  width: 50%;
+  border-radius: 15px !important;
+  margin: 10px;
+}
+.skeleton > .skele-2 {
+  align-self: flex-end;
 }

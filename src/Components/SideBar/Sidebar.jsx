@@ -95,8 +95,8 @@ function Sidebar({ logutUserFromRedux }) {
             </div>
           </div>
           {options.map((option, index) => {
-            return <OptionsSidebar key={index} Option={option} />;
-          })}
+            return <OptionsSidebar key={index} index={index} Option={option} />;
+          })} 
         </div>
       </div>
       <div id="ovellyBackground"></div>

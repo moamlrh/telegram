@@ -6,7 +6,7 @@ export const ACTIONS = {
   LASTMESSAGE: "LASTMESSAGE",
   MESSAGEDUSERCLICKED: "MESSAGEDUSERCLICKED",
 };
-
+  
 export const loginCase = (user) => ({
   type: ACTIONS.LOGIN,
   payload: user,
@@ -15,9 +15,9 @@ export const logoutCase = (user) => ({
   type: ACTIONS.LOGOUT,
   payload: user,
 });
-export const OpenChatOnClick = (id) => ({
+export const OpenChatOnClick = (user) => ({
   type: ACTIONS.OPENCHATONCLICK,
-  payload: id,
+  payload: user,
 });
 export const setLastMessage = (msg) => ({
   type: ACTIONS.LASTMESSAGE,
