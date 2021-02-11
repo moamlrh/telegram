@@ -4,13 +4,13 @@ import "firebase/firestore";
 import "firebase/database";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBAMu4VP1qcz-scw_KY19AUygVVfipL_4k",
-  authDomain: "telegram-702bb.firebaseapp.com",
-  databaseURL: "https://telegram-702bb.firebaseio.com",
-  projectId: "telegram-702bb",
-  storageBucket: "telegram-702bb.appspot.com",
-  messagingSenderId: "339201793761",
-  appId: "1:339201793761:web:4bc4c8d35c10e7b134e1a0",
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
 });
 
 //  Users Login and Signup
